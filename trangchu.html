@@ -12,9 +12,44 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     />
+
     <style>
       body {
         background-color: #f0f2f5;
+      }
+      .like-btn-wrap {
+        position: relative;
+        display: inline-block;
+      }
+      .emoji-bar {
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        padding: 5px 12px;
+        margin: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        font-size: 1.5rem;
+        z-index: 10;
+        display: none;
+        gap: 8px;
+      }
+      .emoji-btn {
+        padding: 0 15px;
+        cursor: pointer;
+        transition: background 0.1s, transform 0.1s;
+        border-radius: 50%;
+      }
+      .emoji-btn:hover {
+        background-color: rgb(255, 255, 16);
+        transform: scale(1.2);
+      }
+      .like-btn-wrap:hover .emoji-bar,
+      .like-btn-wrap:focus-within .emoji-bar {
+        display: flex;
       }
     </style>
   </head>
@@ -67,6 +102,53 @@
           </div>
           <div class="mt-4" id="post-container">
             <!-- đổ dữ liệu vào đây -->
+            <div class="card mb-3">
+              <div class="card-header bg-white border-0 p-3">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person-circle fs-2 me-2"></i>
+                  <div>
+                    <strong class="d-block">thu</strong>
+                    <small class="text-muted">1 phút trên</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body pt-0">
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                  facere vel iure. Explicabo voluptates quia distinctio, facilis
+                  aperiam nostrum. Assumenda eos voluptatibus autem aperiam
+                  accusamus iure, sapiente ut dolore modi!
+                </p>
+              </div>
+              <img
+                src="data:image/jpeg;base64,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"
+                class="card-img-bottom"
+                alt="Ảnh bài viết"
+              />
+
+              <div class="card-footer bg-white border-0 p-3">
+                <div class="parentElement d-flex justify-content-around">
+                  <div class="like-btn-wrap">
+                    <button class="btn btn-like btn-light w-100">
+                      <i class="bi bi-heart"></i> 10
+                    </button>
+                    <div class="emoji-bar">
+                      <span class="emoji-btn">like</span>
+                      <span class="emoji-btn">tym</span>
+                      <span class="emoji-btn">haha</span>
+                      <span class="emoji-btn">wow</span>
+                      <span class="emoji-btn">sad</span>
+                      <span class="emoji-btn">angry</span>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-light">
+                    <i class="bi bi-x-circle-fill">Xóa</i>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -100,7 +182,7 @@
           content: postContent.value,
           imageUrl: document.getElementById("post-image-url").value,
           userId: currentUser.id, // Gắn ID của người dùng vào bài viết
-          username: currentUser.username, // Gắn tên người dùng vào bài viết
+          userName: currentUser.username, // Gắn tên người dùng vào bài viết
           time: new Date().toLocaleDateString("vi-VN"), // Thêm thời gian tạo
           emotions: [],
         };
@@ -137,7 +219,7 @@
                     <div class="d-flex align-items-center">
                     <i class="bi bi-person-circle fs-2 me-2"></i>
                     <div>
-                        <strong class="d-block">${post.username}</strong>
+                        <strong class="d-block">${post.userName}</strong>
                         <small class="text-muted">${post.time}</small>
                     </div>
                     </div>
@@ -148,18 +230,28 @@
                 </div>
                 <img src="${post.imageUrl}" class="card-img-bottom" alt="Ảnh bài viết">
 
-                <div class="card-footer bg-white border-0 p-3">
-                    <div class="d-flex justify-content-around">
-                    <button   class="btn btn-like btn-light w-100" onclick ="addLike(${post.id})">
-                        <i class="bi bi-heart"></i> ${post.emotions.length}
+                 <div class="card-footer bg-white border-0 p-3">
+                <div class="parentElement d-flex justify-content-around">
+                  <div class="like-btn-wrap">
+                    <button class="btn btn-like btn-light " onclick="addLike( ${post.id}, 'like', ${post.userId})">
+                      <i class="bi bi-heart"></i> ${post.emotions.length}
                     </button>
-                    <button class="btn btn-light w-100" onclick="removePostIndex(${post.id},${post.userId})">
-                        <i class="bi bi-x-circle-fill" >Xóa</i>
-                    </button>
-
+                    <div class="emoji-bar">
+                      <span class="emoji-btn" onclick="addLike(${post.id}, 'like' , '${post.userId}')">like</span>
+                      <span class="emoji-btn" onclick="addLike(${post.id}, 'tym' , '${post.userId}')">tym</span>
+                      <span class="emoji-btn" onclick="addLike(${post.id}, 'haha', '${post.userId}')">haha</span>
+                      <span class="emoji-btn"  onclick="addLike(${post.id}, 'wow', '${post.userId}')">wow</span>
+                      <span class="emoji-btn" onclick="addLike(${post.id}, 'sad', '${post.userId}')">sad</span>
+                      <span class="emoji-btn" onclick="addLike(${post.id}, 'angry', '${post.userId}')">angry</span>
                     </div>
+                  </div>
+
+                  <button class="btn btn-light " onclick="removePostIndex(${post.id},${post.userId})">
+                        <i class="bi bi-x-circle-fill" >Xóa</i>
+                  </button>
                 </div>
-                </div>
+              </div>
+              </div>
             `;
 
             return postHTML;
@@ -199,8 +291,9 @@
       });
 
     // chuyển biểu tượng thành số lượng like
-    function addLike(postId) {
-      //b1: lấy dữ liệu về
+    function addLike(postId, emoji, userId) {
+      console.log(1);
+      //b1: lấy dữ liệu của bài viết có id cụ thể về
       fetch(`https://68766632814c0dfa653bf302.mockapi.io/post/${postId}`)
         .then((response) => response.json())
         .then((data) => {
@@ -209,9 +302,9 @@
           let order = {
             userId: currentUser.id,
             username: currentUser.username,
+            emoji: emoji,
           };
           listEmotions.push(order);
-          let numberLike = listEmotions.length;
           //b3: gửi dữ liệu lên mockapi
           fetch(`https://68766632814c0dfa653bf302.mockapi.io/post/${postId}`, {
             method: "PUT",
@@ -222,32 +315,13 @@
           })
             .then((response) => response.json())
             .then(() => {
-              alert("Like bài viết thanh cong!");
+              // alert("Like bài viết thanh cong!");
               renderPost();
             })
             .catch((error) => console.error("Lỗi:", error));
         });
 
       console.log("check like");
-      let detail = {
-        userId: currentUser.id,
-        username: currentUser.username,
-      };
-      listEmotions.push(order);
-      let numberLike = listEmotions.length;
-      fetch(`https://68766632814c0dfa653bf302.mockapi.io/post/${postId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          emotions: listEmotions,
-        }),
-      })
-        .then((response) => response.json())
-        .then(() => {
-          alert("Like bài viết thanh cong!");
-          renderPost();
-        })
-        .catch((error) => console.error("Lỗi:", error));
     }
   </script>
 </html>
