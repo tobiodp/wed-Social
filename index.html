@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Đăng Nhập & Đăng Ký</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="group-btn">
+        <button class="btn" id="login-btn">Đăng Nhập</button>
+        <button class="btn" id="register-btn">Đăng Ký</button>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  document.getElementById("login-btn").addEventListener("click", function () {
+    window.location.href = "loggin.html";
+  });
+  document
+    .getElementById("register-btn")
+    .addEventListener("click", function () {
+      window.location.href = "register.html";
+    });
+</script>

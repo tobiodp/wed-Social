@@ -1,0 +1,123 @@
+/* Cài đặt chung */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container chính chứa 2 form */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Căn các form theo đầu trang */
+  gap: 40px; /* Khoảng cách giữa 2 form */
+  flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+/* Kiểu dáng chung cho mỗi form */
+.form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Giới hạn chiều rộng tối đa */
+}
+
+.form h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Nhóm input (bao gồm label và input) */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Nút bấm */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Tùy chỉnh cho form đăng ký có màu khác */
+#register .btn {
+  background-color: #28a745;
+}
+
+#register .btn:hover {
+  background-color: #218838;
+}
+
+#register .input-group input:focus {
+  border-color: #28a745;
+}
+.group-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.btn-like:hover {
+  background-color: #218838;
+}
+.emoji-bar {
+  display: flex;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 4px 12px;
+  transition: all 0.2s;
+  font-size: 1.5rem;
+  align-items: center;
+}
+.emoji-btn {
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.emoji-btn:hover {
+  transform: scale(1.2);
+}
