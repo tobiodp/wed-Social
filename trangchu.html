@@ -168,7 +168,7 @@
       document.getElementById("user-name").textContent = currentUser.username;
     } else {
       alert("Bạn cần đăng nhập để đăng bài!");
-      window.location.href = "loggin.html";
+      window.location.href = "index.html";
     }
     // gửi dữ liệu từ form lên mockapi
     renderPost(); // render bài viết
@@ -287,12 +287,12 @@
 
         // 2. Thông báo và chuyển hướng về trang đăng nhập
         alert("Bạn đã đăng xuất thành công!");
-        window.location.href = "loggin.html";
+        window.location.href = "index.html";
       });
 
     // chuyển biểu tượng thành số lượng like
     function addLike(postId, emoji, userId) {
-      console.log(1);
+      console.log("check like", postId, emoji, userId);
       //b1: lấy dữ liệu của bài viết có id cụ thể về
       fetch(`https://68766632814c0dfa653bf302.mockapi.io/post/${postId}`)
         .then((response) => response.json())

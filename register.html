@@ -13,11 +13,34 @@
     <style>
       /* Thêm một chút style để căn giữa form trên nền xám */
       body {
-        background-color: #f8f9fa;
+        min-height: 100vh;
+        background: url("https://i.pinimg.com/originals/37/79/0d/37790dce2c613bf71edbb64bf7bbb3f0.gif")
+          no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+      }
+      .bg-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.4);
+        z-index: 0;
+        pointer-events: none;
+      }
+      .form {
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.45);
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
       }
     </style>
   </head>
   <body>
+    <div class="bg-overlay"></div>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
@@ -91,7 +114,7 @@
         .then((data) => {
           console.log("Đăng ký thành công:", data);
           alert("Đăng ký thành công!");
-          window.location.href = "loggin.html"; // Chuyển hướng đến trang đăng nhập
+          window.location.href = "index.html"; // Chuyển hướng đến trang đăng nhập
         })
         .catch((error) => {
           console.error("Lỗi đăng ký:", error);
